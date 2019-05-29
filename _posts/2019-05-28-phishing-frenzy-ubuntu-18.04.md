@@ -91,11 +91,11 @@ tags: [phishing, Ubuntu 18.04]
 
 過程中會選擇語言，選 ruby，接著會提示系統中缺少那些東西，依照提示安裝即可
 
-    sudo spt-get install libcurl4-openssl-dev
-    sudo spt-get install apache2-dev
-    sudo spt-get install libapr1-dev
-    sudo spt-get install libaprutil1-dev
-    sudo spt-get install libssl-dev
+    sudo apt-get install libcurl4-openssl-dev
+    sudo apt-get install apache2-dev
+    sudo apt-get install libapr1-dev
+    sudo apt-get install libaprutil1-dev
+    sudo apt-get install libssl-dev
 
 再次安裝 passenger apache2 module
 
