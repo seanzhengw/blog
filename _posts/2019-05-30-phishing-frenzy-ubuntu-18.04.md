@@ -50,8 +50,8 @@ tags: [phishing, Ubuntu 18.04]
 下一行會出現 Enter password: 在這裡輸入密碼，可以用複製貼上
 
     mysql> use mysql;
-    mysql> UPDATE user SET plugin=’mysql_native_password’ WHERE User=’root’;
-    mysql> UPDATE mysql.user SET authentication_string=PASSWORD(‘password’) WHERE USER=’root’;
+    mysql> UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+    mysql> UPDATE mysql.user SET authentication_string=PASSWORD('password') WHERE USER='root';
     mysql> FLUSH PRIVILEGES;
     mysql> exit;
 
