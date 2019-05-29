@@ -54,7 +54,7 @@ sudo git clone https://github.com/pentestgeek/phishing-frenzy.git /var/www/phish
 
 安裝 rvm
 
-\curl -sSL https://get.rvm.io | bash
+    \curl -sSL https://get.rvm.io | bash
 
 將 rvm 啟用加到 .bashrc
 
@@ -66,7 +66,7 @@ sudo git clone https://github.com/pentestgeek/phishing-frenzy.git /var/www/phish
 
 過程中可能會需要輸入密碼
 
-安裝 Rials
+安裝 Rails
 
     rvm all do gem install --no-document rails
 
@@ -118,8 +118,10 @@ sudo git clone https://github.com/pentestgeek/phishing-frenzy.git /var/www/phish
 
     sudo nano /etc/apache2/sites-enabled/pf.conf
 
+內容如下
+
     <VirtualHost *:80>
-      ServerName phishing-frenzy.com
+      ServerName 127.0.0.1
       # !!! Be sure to point DocumentRoot to 'public'!
       DocumentRoot /var/www/phishing-frenzy/public
       RailsEnv development
@@ -143,8 +145,8 @@ sudo git clone https://github.com/pentestgeek/phishing-frenzy.git /var/www/phish
 
 建立 database pf_dev 與使用者 pf_dev@localhost
 
-mysql> create database pf_dev;
-mysql> grant all privileges on pf_dev.* to 'pf_dev'@'localhost' identified by 'password';
+    mysql> create database pf_dev;
+    mysql> grant all privileges on pf_dev.* to 'pf_dev'@'localhost' identified by 'password';
 
 安裝 Redis
 
@@ -166,7 +168,12 @@ mysql> grant all privileges on pf_dev.* to 'pf_dev'@'localhost' identified by 'p
 Sidekiq Configuration
 
     mkdir -p /var/www/phishing-frenzy/tmp/pids
+
+啟動 Sidekiq
+
     rvmsudo sidekiq -C config/sidekiq.yml
+
+這裡可以用 Ctrl+Z 之後搭配指令 `bg %1` 讓 Sidekiq 在背景運作。
 
 設定 sudo 權限給 www-data
 
@@ -187,3 +194,5 @@ Load the Efax and Intel default templates for PF using the rake helper
     sudo chown -R www-data:www-data /etc/apache2/sites-enabled/
     sudo chmod 755 /etc/apache2/sites-enabled/
     sudo apachectl restart
+
+打開瀏覽器連線到 http://127.0.0.1/ 測試是否成功
