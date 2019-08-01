@@ -1,0 +1,12 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+$title-color:            #ff9999;
+$page-link-color:      #ff9999;
+$text-color:           lighten(#000, 75%);
+$highlight-bgcolor:    lighten(#000, 12%);
+$code-bgcolor:         lighten(#000, 12%);
+$link-color:           darken(#ff9999, 5%);
+
+@import "minima";
