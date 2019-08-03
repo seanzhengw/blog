@@ -1,7 +1,10 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
-
+;
+$site-header-bgcolor:    #3c3c3c;
+$site-bgcolor:           #333333;
+$site-footer-bgcolor:    #3c3c3c;
 $title-color:            #ff9999;
 $page-link-color:      #ff9999;
 $text-color:           lighten(#000, 75%);
