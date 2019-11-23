@@ -121,7 +121,7 @@ GitLab Runner 也可以作為 Docker 服務執行 (這和上面說的 Docker Exe
 <b><span style="color:red">
 ERROR: Job failed: Error response from daemon: pull access denied for myimage, repository does not exist or may require 'docker login': denied: requested access to the resource is denied</span></b>
 
-這時候要修改設定檔 `config.toml`，在 `[runners.docker]` 中加入
+這時候要修改設定檔 `/etc/gitlab-runner/config.toml`，在 `[runners.docker]` 中加入
 
     pull_policy = "if-not-present"
 
