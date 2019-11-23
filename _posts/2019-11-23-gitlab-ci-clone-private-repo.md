@@ -89,7 +89,7 @@ tags: [gitlab, ci]
 3. 建立帳號 myciaccount
 4. 建立 Access Token: XXXXXXXXXXXXXXXXXXXX
 
-    > 要注意帳戶需要開啟 2FA 才能使用 Access Token 當作 HTTP BASIC 的密碼，否則以下關於 Access Token 的部分只能改成輸入該帳戶的密碼
+    > 要注意帳戶有啟用 2FA 則必須使用 Access Token 當作 HTTP BASIC 的密碼，若沒啟用 2FA 則 Access Token 與密碼都可以使用。
 
 5. 在 gitlab-ci.yml 設定
 
