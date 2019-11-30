@@ -49,3 +49,13 @@ tags: [docker]
 並且 `/usr/lib/systemd/system/docker.service` 與 `/usr/lib/systemd/system/docker.socket` 並沒有被建立。
 
 所以用 `systemctl start docker` 去判斷正不正常就好。
+
+### 防火牆設定
+
+為了讓 docker 容器能正常存取外部網路，需要將 docker0 新增到防火牆的 trusted 區
+
+    firewall-cmd --permanent --zone=trusted --change-interface=docker0
+    firewall-cmd --reload
+    systemctl restart docker
+
+直接信任 docker0 是比較簡便的作法，若是對於容器內的外部網路存取權有比較多的安全性要求，也可以用 firewall direct rules 設定。
