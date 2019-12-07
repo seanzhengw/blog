@@ -12,9 +12,28 @@ tags: [docker]
 
 最近決定在另外一台 CentOS 8 的主機上用 Docker 裝 GitLab Runner，但 Docker 安裝時有點問題。
 
+另外這裡改用 `dnf` ，所以與 Docker 官網教學有一點點指令上的差異 (官網上還是用 `yum`)
+
 ### 官網教學
 
 [https://docs.docker.com/engine/install/centos/](https://docs.docker.com/engine/install/centos/)
+
+#### 改用 dnf
+
+第一個步驟是新增儲存庫，使用 `yum` 的時候就像教學上這樣
+
+    sudo yum install -y yum-utils
+    sudo yum-config-manager \
+        --add-repo \
+        https://download.docker.com/linux/centos/docker-ce.repo
+
+如果改用 `dnf` ，那並不需要先安裝 `yum-utils`，並且將 `yum-config-manager` 的地方改成 `dnf config-manager`，要注意 `yum-config-manager` 是指令，`dnf config-manager` 是指令 `dnf` + 參數 `config-manager`
+
+    sudo dnf config-manager \
+        --add-repo \
+        https://download.docker.com/linux/centos/docker-ce.repo
+
+接下來的步驟中直接將 `yum` 替換為 `dnf` 即可。
 
 #### 問題
 
